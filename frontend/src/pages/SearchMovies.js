@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import MovieFilters from '../components/MovieFilters';
 
 const omdbApiKey = "914ef99f";
 
@@ -29,6 +30,11 @@ export default function SearchMovies() {
   
   
     return (
-    <div>SearchMovies</div>
+    <div>
+        <MovieFilters handleSearchMovies={handleSearchMovies} />
+        <div>
+            {JSON.stringify(movies)}
+        </div>
+    </div>
   )
 }
