@@ -5,7 +5,8 @@ import MovieList from '../components/MovieList';
 
 const omdbApiKey = "914ef99f";
 
-export default function SearchMovies() {
+export default function SearchMovies(props) {
+    const { handleAddToList } = props;
   const [movies, setMovies] = useState([]);
 
   const handleSearchMovies = (queries) => {
@@ -33,7 +34,7 @@ export default function SearchMovies() {
     return (
     <div>
         <MovieFilters handleSearchMovies={handleSearchMovies} />
-        <MovieList data={movies} />
+        <MovieList handleAddToList={handleAddToList} data={movies} />
     </div>
   )
 }
