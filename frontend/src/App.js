@@ -1,17 +1,22 @@
 import { CssBaseline } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import SearchMovies from "./pages/SearchMovies";
+import SavedMovies from "./pages/SavedMovies";
 
 
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <CssBaseline />
       <Navbar />
-      <SearchMovies />
-    </div>
+      <Routes>
+        <Route path="/" element={<SearchMovies />} />
+        <Route path="/saved-movies" element={<SavedMovies />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

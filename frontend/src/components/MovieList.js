@@ -13,9 +13,7 @@ const { data = [] } = props;
                     key={d.imdbID}>
                         <MovieListItem title={d.title} year={d.year} imdbID={d.imdbID} poster={d.poster} type={d.type} /> 
                     </Grid>
-
-                )
-
+                 )
             })}
         </Grid>
     </Container>
