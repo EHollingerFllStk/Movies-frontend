@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export default function SavedMovies() {
+import MovieList from '../components/MovieList';
+
+export default function SavedMovies(props) {
+    const { data } = props;
   return (
-    <div>SavedMovies</div>
+    <MovieList data={data} />
   )
 }
