@@ -12,7 +12,7 @@ import { IconButton } from '@mui/material';
 
 
 export default function MovieListItem(props) {
-    const { title, year, type, imdbID, poster, action, handleAddToList } = props;
+    const { title, year, type, imdbID, poster, action, handleAddToList, handleRemoveFromList } = props;
 
     const handleAddOnClick = () => {
         handleAddToList({
@@ -22,6 +22,10 @@ export default function MovieListItem(props) {
             imdbID,
             poster
         })
+    }
+
+    const handleRemoveOnClick = () => {
+        handleRemoveFromList(imdbID);
     }
 
     return (
@@ -42,11 +46,17 @@ export default function MovieListItem(props) {
                     </Typography>
                 </CardContent>
                 <Box sx={{ display: 'flex', alignItems: 'center', pb: 1, justifyContent: "flex-end", pr: 1 }}>
-                    <Tooltip title="Add to List">
+                    {action === "add" ? <Tooltip title="Add to List">
                         <IconButton aria-label="bookmark" onClick={handleAddOnClick}>
-                            <BookmarkBorderIcon />
+                             <BookmarkBorderIcon />
                         </IconButton>
-                    </Tooltip>
+                    </Tooltip> : <Tooltip title="Remove from list">
+                        <IconButton aria-label="bookmark-remove" onClick={handleRemoveFromList}>
+                            <BookmarkIcon />
+                        </IconButton>
+                            
+                        </Tooltip>}
+                    
                 </Box>
             </Box>
 
