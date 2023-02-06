@@ -5,11 +5,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import SearchMovies from "./pages/SearchMovies";
 import SavedMovies from "./pages/SavedMovies";
+import { useSnackbar } from "notistack";
 
 
 function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesMap, setSavedMoviesMap] = useState(null);
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     const movies = JSON.parse(localStorage.getItem("savedMovies") || "[]");
@@ -29,6 +31,7 @@ function App() {
     const newMoviesMap = {...savedMoviesMap, [movie.imbdID]: true
     };
     setSavedMoviesMap(newMoviesMap);
+    enqueueSnackbar("Added Movie to List")
   }
 
   const handleRemoveFromList = (id) => {
@@ -40,6 +43,7 @@ function App() {
     setSavedMovies(filteredMovies);
     const newMoviesMap = {...savedMoviesMap, [id]: false };
     setSavedMoviesMap(newMoviesMap);
+    enqueueSnackbar("Removed Movie from List")
   }
   
 
