@@ -46,16 +46,15 @@ export default function MovieListItem(props) {
                     </Typography>
                 </CardContent>
                 <Box sx={{ display: 'flex', alignItems: 'center', pb: 1, justifyContent: "flex-end", pr: 1 }}>
-                    {action === "add" ? <Tooltip title="Add to List">
+                        {action === "add" ? <Tooltip title="Add to List">
                         <IconButton aria-label="bookmark" onClick={handleAddOnClick}>
                              <BookmarkBorderIcon />
                         </IconButton>
                     </Tooltip> : <Tooltip title="Remove from list">
-                        <IconButton aria-label="bookmark-remove" onClick={handleRemoveFromList}>
+                        <IconButton aria-label="bookmark-remove" onClick={handleRemoveOnClick}>
                             <BookmarkIcon />
                         </IconButton>
-                            
-                        </Tooltip>}
+                    </Tooltip>}
                     
                 </Box>
             </Box>

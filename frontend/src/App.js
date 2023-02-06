@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import SearchMovies from "./pages/SearchMovies";
 import SavedMovies from "./pages/SavedMovies";
 
+
 function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesMap, setSavedMoviesMap] = useState(null);
